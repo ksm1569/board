@@ -25,6 +25,6 @@
 
 ### 📜 ERD
 <p align="center">
-  <img width="600" src = "https://github.com/ksm1569/board/assets/34292113/7b24b907-02a7-43f9-9e2f-6ecb6bec809e">
+  <img width="600" src = "https://github.com/ksm1569/board/assets/34292113/734892ba-4546-4562-80b0-3b67bb620846">
 </p>
 
