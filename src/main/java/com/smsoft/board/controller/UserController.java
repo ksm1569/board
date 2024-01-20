@@ -1,5 +1,6 @@
 package com.smsoft.board.controller;
 
+import com.smsoft.board.aop.LoginCheck;
 import com.smsoft.board.dto.UserDTO;
 import com.smsoft.board.dto.request.UserDeleteId;
 import com.smsoft.board.dto.request.UserLoginRequest;
@@ -63,11 +64,13 @@ public class UserController {
 
     // 비밀번호만 변경 할때는 PatchMapping이 더 적절하다.
     @PatchMapping("/password")
+    @LoginCheck(type = LoginCheck.UserType.USER)
     public ResponseEntity<UserLoginResponse> updateUserPassword(
+            String userId,
             @RequestBody UserUpdatePasswordRequest userUpdatePasswordRequest,
             HttpSession httpSession
     ) {
-        String id = SessionUtil.getLoginMemberId(httpSession);
+        String id = userId;
         String beforePassword = userUpdatePasswordRequest.getBeforePassword();
         String afterPassword = userUpdatePasswordRequest.getAfterPassword();
 

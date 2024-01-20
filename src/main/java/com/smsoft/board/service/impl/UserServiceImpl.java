@@ -66,7 +66,7 @@ public class UserServiceImpl implements UserService {
         String beforeCryptoPassword = SHA256Util.encryptSHA256(beforePassword);
         UserDTO userDTO = userProfileMapper.findByIdAndPassword(id, beforeCryptoPassword);
         if (userDTO == null) {
-            log.error("Invalid ID or password: {}", id);
+            log.error("Invalid ID or password: {}, {}", id, beforePassword);
             throw new RuntimeException("Invalid ID or password");
         }
 

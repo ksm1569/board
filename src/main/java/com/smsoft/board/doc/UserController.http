@@ -16,8 +16,8 @@ POST http://localhost:18082/users/sign-in
 Content-Type: application/json
 
 {
-  "userId": "sumin2",
-  "password": "12345"
+  "userId": "sumin",
+  "password": "1234"
 }
 
 ### 회원정보 조회 (my-info)
@@ -29,8 +29,8 @@ PATCH http://localhost:18082/users/password
 Content-Type: application/json
 
 {
-  "beforePassword": "1234",
-  "afterPassword": "12345"
+  "beforePassword": "12345",
+  "afterPassword": "1234"
 }
 
 ### 로그아웃 (logout)
