@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.smsoft.board.mapper.PostMapper">
+    <insert id="registerPosts" parameterType="com.smsoft.board.dto.PostDTO">
+        INSERT INTO post (title, isAdmin, contents, createDate,
+                          viewCount, userId, categoryId, fileId
+                          )
+        values (#{title}, #{isAdmin}, #{contents}, CURRENT_TIMESTAMP,
+                #{viewCount}, #{userId}, #{categoryId}, #{fileId}
+               )
+    </insert>
+
+    <select id="getMyPosts" resultType="com.smsoft.board.dto.PostDTO">
+        Select id, title, isAdmin, contents, createDate,
+               viewCount, userId, categoryId, fileId
+          From post
+         Where userId = #{userId}
+    </select>
+
+    <update id="updatePosts" parameterType="com.smsoft.board.dto.PostDTO">
+        UPDATE post
+           SET title = #{title},
+               contents = #{contents},
+               viewCount = #{viewCount},
+               categoryId = #{categoryId},
+               userId = #{userId},
+               fileId = #{fileId},
+               updateDate = CURRENT_TIMESTAMP
+         WHERE id = #{id}
+    </update>
+
+    <delete id="deletePosts">
+        DELETE FROM post WHERE userId = #{userId} AND id = #{postId}
+    </delete>
+</mapper>

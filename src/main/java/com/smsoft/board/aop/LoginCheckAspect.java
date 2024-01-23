@@ -37,7 +37,7 @@ public class LoginCheckAspect {
         }
 
         if (id == null) {
-            log.debug(proceedingJoinPoint.toString() + "accountID : " + id);
+            log.debug(proceedingJoinPoint.toString() + "user ID : " + id);
             throw new HttpStatusCodeException(HttpStatus.UNAUTHORIZED, "id check please") {};
         }
 

@@ -22,9 +22,9 @@ public class UserDTO {
     private String userId;
     private String password;
     private String nickName;
-    private boolean isAdmin;
+    private Boolean isAdmin;
     private Date createDate;
-    private boolean isWithDraw;
+    private Boolean isWithDraw;
     private Status status;
     private Date updateDate;
 }
