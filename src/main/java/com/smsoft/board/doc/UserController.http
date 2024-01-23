@@ -3,12 +3,12 @@ POST http://localhost:18082/users/sign-up
 Content-Type: application/json
 
 {
-  "userId": "sumin2",
+  "userId": "sumin6",
   "password": "1234",
-  "nickName": "ksm2",
-  "isAdmin": false,
+  "nickName": "ksm6",
+  "isAdmin": true,
   "isWithDraw": false,
-  "status": "DEFAULT"
+  "status": "ADMIN"
 }
 
 ### 로그인 (sign-in)
@@ -16,7 +16,7 @@ POST http://localhost:18082/users/sign-in
 Content-Type: application/json
 
 {
-  "userId": "sumin",
+  "userId": "sumin5",
   "password": "1234"
 }
 

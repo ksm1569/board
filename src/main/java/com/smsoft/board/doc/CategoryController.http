@@ -1,0 +1,19 @@
+### 카테고리 등록
+POST http://localhost:18082/categories
+Content-Type: application/json
+
+{
+  "name": "쇼핑"
+}
+
+### 카테고리 이름 수정
+PATCH http://localhost:18082/categories/2
+Content-Type: application/json
+
+{
+  "id": 2,
+  "name": "롤"
+}
+
+### 카테고리 삭제
+DELETE http://localhost:18082/categories/4

@@ -1,0 +1,34 @@
+### 게시글 등록
+POST http://localhost:18082/posts
+Content-Type: application/json
+
+{
+  "title": "두번쨰 글 제목",
+  "isAdmin": false,
+  "contents": "두번째 글 내용",
+  "categoryId": 1
+}
+
+### 나의 게시글 리스트 보기
+GET http://localhost:18082/posts/my-posts
+
+
+### 게시글 수정
+PATCH http://localhost:18082/posts/9
+Content-Type: application/json
+
+{
+  "title": "수정된 글 제목",
+  "contents": "수정된 글 내용",
+  "userId": 8,
+  "categoryId": 1
+}
+
+### 게시글 삭제
+DELETE http://localhost:18082/posts/9
+Content-Type: application/json
+
+{
+  "userId": 8,
+  "postId": 9
+}
