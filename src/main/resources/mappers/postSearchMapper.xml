@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.smsoft.board.mapper.PostSearchMapper">
+    <select id="selectPosts" resultType="com.smsoft.board.dto.request.PostSearchRequest">
+        Select id,
+               isAdmin,
+               title,
+               contents,
+               createDate,
+               viewCount,
+               userId,
+               categoryId
+          From post
+         Where 1=1
+        <if test="title != null and title != ''">
+             And title Like Concat(#{title}, '%')
+        </if>
+        <if test="contents != null and contents !=''">
+            And contents Like Concat(#{contents}, '%')
+        </if>
+        <if test="categoryId != 0">
+            And categoryId = #{categoryId}
+        </if>
+        <if test="sortStatus.toString() == 'NEWEST'">
+            Order By createDate Desc
+        </if>
+        <if test="sortStatus.toString() == 'OLDEST'">
+            Order By createDate ASC
+        </if>
+        <if test="sortStatus.toString() == 'CATEGORIES'">
+            Order By categoryId
+        </if>
+    </select>
+</mapper>
